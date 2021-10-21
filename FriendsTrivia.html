@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friends Trivia</title>
+</head>
+<body>
+    
+var readlineSync = require('readline-sync');
+var chalk = require('chalk');
+console.log((chalk.red("WELCOME TO FRIENDS TRIVIA")));
+var userName =readlineSync.question("Please Enter Your name ");
+console.log("Hello "+(chalk.blue(userName))+"\nLet us begin with the Quiz");
+var score = 0;
+
+function play(question,answer)
+{
+ var userAns =readlineSync.question(chalk.red(question));
+ if(answer.toUpperCase()===userAns.toUpperCase())
+ {
+   console.log((chalk.green("Correct Answer!!")))
+   score++
+   console.log((chalk.yellow("Current score = ")),(chalk.blue(score)));
+   console.log((chalk.black("----------")));
+ }
+ else
+ {
+   console.log((chalk.red("Wrong Answer!")));
+   score--;
+   console.log((chalk.yellow("Current score = ")),(chalk.blue(score)));
+   console.log((chalk.black("----------")));
+ }
+}
+
+var questions =[
+  {
+  question : "Who does not like to share food? ",
+  answer:"Joey",
+  },
+  {
+  question : "What was the name of Rachel's daughter? ",
+  answer:"Emma",
+  },
+  {
+  question : "What was Chandler's Job ",
+  answer:"Transponster",
+  },
+  {
+  question : "What name did Ross say on the altar ",
+  answer:"Rachel",
+  },
+  {
+  question : "There is always room for ____ ",
+  answer:"Jello",
+  },
+  {
+  question : "Which car did Monica get? ",
+  answer:"Porsche",
+  },
+  {
+  question : "Which is Pheobe's most famous song? ",
+  answer:"Smelly Cat",
+  },
+  {
+  question : "I am not good at advices,Can I interest you in sarcasm. This is said by__? ",
+  answer:"Chandler",
+  }
+];
+
+for(var i=0;i<questions.length;i++)
+{
+  play(questions[i].question,questions[i].answer);
+}
+console.log((chalk.red("Your Total Score is ")) ,(chalk.blue(score)));
+</body>
+</html>
